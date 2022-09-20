@@ -11,6 +11,7 @@
 
         @if($data->avatar)
         <img src="{{ asset('storage/'.$data->avatar) }}" alt="" width="100px"><br>
+
         @endif
 
         File <input type="file" name="berkas" required accept=".jpg,.png">

@@ -14,6 +14,7 @@
 
     <form method="POST" action="{{url('mahasiswa')}}" enctype="multipart/form-data">
         {{csrf_field() }}
+        <br>
         <div class="form-floating mb-3">
             <input name="username" type="text" class="form-control" required>
             <label for="username">Username</label>
@@ -22,10 +23,12 @@
             <input name="password" type="password" class="form-control" required>
             <label for="password">Password</label>
         </div>
+        <br>
         <div class="form-floating">
             <input name="email" type="email" class="form-control" required>
             <label for="email">Email</label>
         </div>
+        <br>
         <div class="mb-3">
             <label for="formFile" class="form-label">Avatar</label>
             <input name="berkas" class="form-control" type="file" required accept=".jpg,.png">

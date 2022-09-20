@@ -105,9 +105,9 @@ class MahasiswaController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'username' => 'required|alpha_dash|min:4|max:20|unique:App\Models\MahasiswaModel,user_id,' . $id,
+            'username' => 'required|alpha_dash|min:4|max:20|unique:App\Models\MahasiswaModel',
             'password' => 'required|max:50',
-            'email' => 'required|email:dns|unique:App\Models\MahasiswaModel' . $id,
+            'email' => 'required|email:dns|unique:App\Models\MahasiswaModel',
             'berkas' => 'required|mimes:jpg,png|max:100'
         ];
 
@@ -160,11 +160,14 @@ class MahasiswaController extends Controller
 
     public function cetak_pdf()
     {
+        // $data = MahasiswaModel::all();
+
+        // return view('cetak_pdf', ['data' => $data]);
+
+        // $pdf = Pdf::loadView('cetak_pdf', ['data' => $data]);
+        // return $pdf->stream();
+
         $data = MahasiswaModel::all();
-
-        //return view('cetak_pdf', ['data' => $data]);
-
-        $pdf = Pdf::loadView('cetak_pdf', ['data' => $data]);
-        return $pdf->stream();
+        return view('cetak_pdf', compact('data'));
     }
 }
